@@ -1,10 +1,11 @@
 #include <QtGui/QGuiApplication>
 #include "qtquick2applicationviewer.h"
-#include "tasktest.h"
+#include "testtask.h"
+
 
 int main(int argc, char *argv[])
 {
-    TaskTest();
+    QTest::qExec(new TestTask, argc, argv);
 
     QGuiApplication app(argc, argv);
 

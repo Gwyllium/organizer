@@ -15,7 +15,7 @@ QML_IMPORT_PATH =
 # The .cpp file which was generated for your project. Feel free to hack it.
 SOURCES += main.cpp \
     task.cpp \
-    tasktest.cpp
+    testtask.cpp
 
 # Installation path
 # target.path =
@@ -26,4 +26,4 @@ qtcAddDeployment()
 
 HEADERS += \
     task.h \
-    tasktest.h
+    testtask.h
