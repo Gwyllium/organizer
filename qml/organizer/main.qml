@@ -1,16 +1,29 @@
 import QtQuick 2.0
 
 Rectangle {
-    width: 360
-    height: 360
-    Text {
-        text: qsTr("Hello World")
-        anchors.centerIn: parent
-    }
-    MouseArea {
-        anchors.fill: parent
-        onClicked: {
-            Qt.quit();
+    width: 640; height: 480
+
+    Component {
+        id: taskDelegate
+        Item {
+            id: wrapper
+            width: taskInfo.width; height: taskInfo.height
+            Column {
+                id: taskInfo
+                Text {
+                    text: '<b>' + name + '</b>'
+                    color: wrapper.ListView.isCurrentItem ? "black" : "red"
+                }
+                Text { text: '<i>' + startTime + ' - ' + endTime + '</i>'}
+            }
         }
+    }
+
+    ListView {
+        anchors.fill: parent
+        model: TaskModel {}
+        delegate: taskDelegate
+        highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
+        focus: true
     }
 }
