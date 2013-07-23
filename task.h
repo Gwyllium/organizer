@@ -11,10 +11,14 @@ public:
     Task(const QString name);
     QString getName();
     void setStartDate(const QDate start);
+    void setEndDate(const QDate end);
+
     QDate getStartDate();
+    QDate getEndDate();
 private:
     QString name;
     QDate startDate;
+    QDate endDate;
 };
 
 #endif // TASK_H

@@ -5,6 +5,7 @@ Task::Task(const QString name)
    if (name=="") {
        throw QException();
    }
+
    this->name=name;
 }
 
@@ -21,4 +22,14 @@ void Task::setStartDate(const QDate start)
 QDate Task::getStartDate()
 {
     return startDate;
+}
+
+QDate Task::getEndDate()
+{
+    return endDate;
+}
+
+void Task::setEndDate(const QDate end)
+{
+    endDate=end;
 }

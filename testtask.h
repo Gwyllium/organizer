@@ -2,9 +2,7 @@
 #define TESTTASK_H
 
 #include <QObject>
-#include <QTest>
-#include <QDebug>
-#include <QException>
+#include "test.h"
 #include "task.h"
 
 class TestTask : public QObject
@@ -23,6 +21,9 @@ private slots:
     void getAnotherName();
     void getStartDate();
     void getAnotherStartDate();
+
+    void getEndDate();
+    void getAnotherEndDate();
 };
 
 #endif // TESTTASK_H
