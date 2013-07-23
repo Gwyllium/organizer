@@ -20,7 +20,7 @@ void TestTask::nameIsEmpty()
   }
   catch(QException ex)
   {
-      qDebug() << "Пустое имя";
+      qDebug() << "Empty name";
       //QCOMPARE(ex.what(), "Name should not be empty.");
   }
   catch (...) {
@@ -59,4 +59,24 @@ void TestTask::getAnotherStartDate()
 }
 
 
+void TestTask::getEndDate()
+{
+    QDate expected=QDate(2008, 8, 10);
+    Task task=Task("Test task");
+    task.setEndDate(QDate(2008, 8, 10));
+
+    QDate actual=task.getEndDate();
+    QCOMPARE(actual, expected);
+
+
+}
+
+void TestTask::getAnotherEndDate()
+{
+    QDate expected = QDate(2013, 07, 16);
+    Task task = Task("Task");
+    task.setEndDate(QDate(2013, 07, 16));
+    QDate actual = task.getEndDate();
+    QCOMPARE(actual, expected);
+}
 
