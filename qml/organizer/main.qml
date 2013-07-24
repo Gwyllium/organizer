@@ -7,14 +7,13 @@ Rectangle {
         id: taskDelegate
         Item {
             id: wrapper
-            width: taskInfo.width; height: taskInfo.height
+            width: parent.width; height: taskInfo.height
             Column {
                 id: taskInfo
                 Text {
                     text: '<b>' + name + '</b>'
                     color: wrapper.ListView.isCurrentItem ? "black" : "red"
                 }
-                Text { text: '<i>' + startTime + ' - ' + endTime + '</i>'}
             }
         }
     }
