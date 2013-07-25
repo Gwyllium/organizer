@@ -26,6 +26,10 @@ SOURCES += main.cpp \
 include(qtquick2applicationviewer/qtquick2applicationviewer.pri)
 qtcAddDeployment()
 
+
+# Subprojects
+include(tests/tests.pri)
+
 HEADERS += \
     task.h \
     testtask.h \
