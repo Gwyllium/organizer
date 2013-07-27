@@ -7,7 +7,9 @@
 #include "testtask.h"
 #include "testdiarryrecord.h"
 #include "tests/testtree.h"
-
+#include "tasktree.h"
+#include <QStringListModel>
+#include <QStringList>
 
 int main(int argc, char *argv[])
 {
@@ -18,17 +20,21 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     QtQuick2ApplicationViewer viewer;
+    viewer.rootContext()->setContextProperty("taskTree", new TaskTree());
+
+    QStringList taskIdsList = QStringList();
+    taskIdsList.append("0");
+    taskIdsList.append("1");
+    taskIdsList.append("2");
+    taskIdsList.append("3");
+    taskIdsList.append("4");
+
+    viewer.rootContext()->setContextProperty("taskModel", QVariant::fromValue(taskIdsList));
+
+
     viewer.setMainQmlFile(QStringLiteral("qml/organizer/main.qml"));
     viewer.showExpanded();
 
-    QQuickItem *root = viewer.rootObject();
-    qDebug() << root;
-    QQuickItem *taskList = root->findChild<QQuickItem*>(QString("taskList"), Qt::FindDirectChildrenOnly);
-    qDebug() << taskList;
-
-    QQmlContext* context = viewer.rootContext();
-    QVariant taskModel = context->property("taskModel");
-    qDebug() << taskModel;
 
 
     return app.exec();

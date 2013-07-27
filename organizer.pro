@@ -17,7 +17,8 @@ SOURCES += main.cpp \
     task.cpp \
     testtask.cpp \
     diarryrecord.cpp \
-    testdiarryrecord.cpp
+    testdiarryrecord.cpp \
+    tasktree.cpp
 
 # Installation path
 # target.path =
@@ -35,4 +36,5 @@ HEADERS += \
     testtask.h \
     diarryrecord.h \
     testdiarryrecord.h \
-    test.h
+    test.h \
+    tasktree.h

@@ -26,44 +26,46 @@ Item {
                 anchors.verticalCenter: parent.verticalCenter
                 //anchors.horizontalCenter: parent.horizontalCenter
                 x: {
-                    if (taskId == 1 || taskId == 2) {
+                    console.debug("item data: " + modelData)
+                    var taskId = parseInt(modelData)
+                    if (taskId === 1 || taskId === 2) {
                         x = 200
                     } else {
                         x = 100
                     }
                 }
 
-                text: "<b>" + name + "</b>"
+                text: "<b>" + "task " + parseInt(modelData) + "</b>"
             }
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
                     console.debug("clicked")
                     console.log("tree: " + tree)
-                    selectedTaskId = taskId
+                    selectedTaskId = parseInt(modelData)
                     var selectedTaskChildren = tree[selectedTaskId]
-                    var selectedTask = taskModel.get(selectedTaskId)
-                    if ( selectedTask.expanded ) {
-                        console.log("Selected task is expanded.")
-                        selectedTask.expanded = false
-                        for(var childTaskId in selectedTaskChildren) {
-                            console.debug("child: " + childTaskId)
-                            taskList.currentIndex = childTaskId
-                            var childItem = taskList.currentItem
-                            childItem.visible = false
-                            childItem.height = 0
-                        }
-                    } else {
-                        console.log("Selected task is collapsed.")
-                        selectedTask.expanded = true
-                        for(childTaskId in selectedTaskChildren) {
-                            console.debug("child: " + childTaskId)
-                            taskList.currentIndex = childTaskId
-                            childItem = taskList.currentItem
-                            childItem.visible = true
-                            childItem.height = 50
-                        }
-                    }
+//                    var selectedTask
+//                    if ( selectedTask.expanded ) {
+//                        console.log("Selected task is expanded.")
+//                        selectedTask.expanded = false
+//                        for(var childTaskId in selectedTaskChildren) {
+//                            console.debug("child: " + childTaskId)
+//                            taskList.currentIndex = childTaskId
+//                            var childItem = taskList.currentItem
+//                            childItem.visible = false
+//                            childItem.height = 0
+//                        }
+//                    } else {
+//                        console.log("Selected task is collapsed.")
+//                        selectedTask.expanded = true
+//                        for(childTaskId in selectedTaskChildren) {
+//                            console.debug("child: " + childTaskId)
+//                            taskList.currentIndex = childTaskId
+//                            childItem = taskList.currentItem
+//                            childItem.visible = true
+//                            childItem.height = 50
+//                        }
+//                    }
 
                 }
             }
@@ -75,31 +77,6 @@ Item {
         anchors.fill: parent
         model: taskModel
         delegate: taskDelegate
-    }
-
-    ListModel {
-        id: taskModel
-        ListElement {
-            taskId: 0
-            name: "task 1"
-            expanded: true
-        }
-        ListElement {
-            taskId: 1
-            name: "task 2"
-        }
-        ListElement {
-            taskId: 2
-            name: "task 3"
-        }
-        ListElement {
-            taskId: 3
-            name: "task 4"
-        }
-        ListElement {
-            taskId: 4
-            name: "task 5"
-        }
     }
 }
 

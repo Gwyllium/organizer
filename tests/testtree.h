@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QDebug>
+#include <QStandardItemModel>
 
 class TestTree : public QObject
 {
