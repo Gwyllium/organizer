@@ -35,5 +35,5 @@ void TestTree::oneItemTree()
 
     QStandardItem* item = new QStandardItem();
     item->setData(true);
-
+    QVERIFY(item->data() == true);
 }

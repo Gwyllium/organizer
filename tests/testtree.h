@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QDebug>
 #include <QStandardItemModel>
+#include <QTest>
 
 class TestTree : public QObject
 {
