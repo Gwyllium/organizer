@@ -80,26 +80,22 @@ void TestTask::getStartDate_data()
 
 void TestTask::getEndDate()
 {
+    QFETCH(QDate, input);
     QFETCH(QDate, expected);
-    QFETCH(QDate, actual);
-    QCOMPARE(expected, actual);
+    Task task = Task("Task");
+    task.setEndDate(input);
+    QDate actual = task.getEndDate();
+    qDebug() << "input " << input << " expected " << expected << " actual " << actual;
+    QCOMPARE(actual, expected);
 }
 
 void TestTask::getEndDate_data()
 {
+    QTest::addColumn<QDate>("input");
     QTest::addColumn<QDate>("expected");
-    QTest::addColumn<QDate>("actual");
-
-    Task task=Task("first task");
-    task.setEndDate(QDate(2010, 9, 25));
-    QTest::newRow("first date") << QDate(2010, 9, 25) << task.getEndDate();
-
-    task.setEndDate(QDate(2011, 8, 17));
-    QTest::newRow("second date")     << QDate(2011, 8, 17) << task.getEndDate();
-
-    QDate third_date=QDate(2013, 11, 25);
-    task.setEndDate(third_date);
-    QTest::newRow("third date")     << third_date << task.getEndDate();
+    QTest::newRow("first date") << QDate(2010, 9, 25) << QDate(2010, 9, 25);
+    QTest::newRow("second date") << QDate(2011, 8, 17) << QDate(2011, 8, 17);
+    QTest::newRow("third date")     << QDate(2013, 11, 25) << QDate(2013, 11, 25);
 }
 
 

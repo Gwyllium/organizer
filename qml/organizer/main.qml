@@ -4,7 +4,8 @@ Item {
     id: taskListMain
     width: 300
     height: 200
-    property int selectedTaskId: -1
+    property int previouslySelectedTaskIndex: -1
+    property QtObject previouslySelectedTextBlock: null
     property int leftMargin: 100
 
 
@@ -28,6 +29,35 @@ Item {
                 }
                 text: "<b>" + "task " + parseInt(modelData) + "</b>"
             }
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    console.debug("click")
+                    if (previouslySelectedTaskIndex == -1) {
+                        taskDelegateText.color = "red";
+                        previouslySelectedTextBlock = taskDelegateText
+                        previouslySelectedTaskIndex = taskList.currentIndex
+                    } else {
+                        previouslySelectedTextBlock.color = "black"
+                        taskDelegateText.color = "red"
+                        previouslySelectedTaskIndex = taskList.currentIndex
+                        previouslySelectedTextBlock = taskDelegateText
+                    }
+                }
+            }
+            Keys.onRightPressed:  {
+                console.debug("Key 'right' pressed")
+                if (previouslySelectedTaskIndex == -1) {
+                    console.debug("There is not selected task. Do nothing.")
+                } else {
+                    var newTaskId = "555"
+                    var where = previouslySelectedTaskIndex.toString();
+                    taskTree.insert(where, newTaskId)
+                    console.debug("task model " + taskModel)
+                    //taskModel.insert(previouslySelectedTaskIndex, newTaskId)
+                    taskList.update();
+                }
+            }
         }
     }
 
@@ -36,6 +66,7 @@ Item {
         anchors.fill: parent
         model: taskModel
         delegate: taskDelegate
+        focus: true
     }
 }
 

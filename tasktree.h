@@ -14,6 +14,7 @@ public:
     QStandardItem* findRecursive(const QStandardItemModel &tree, const QString &taskId);
     Q_INVOKABLE int nestingLevel(const QString &taskId);
     QList<QString> toPlainList();
+    Q_INVOKABLE void insert(const QString &what, const QString &where);
 signals:
 
 public slots:

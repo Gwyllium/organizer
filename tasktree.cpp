@@ -66,6 +66,17 @@ QList<QString> TaskTree::toPlainList()
     return plainList;
 }
 
+void TaskTree::insert(const QString &what, const QString &where)
+{
+    QStandardItem* whereItem = findRecursive(*tree, where);
+    qDebug() << "where item " << whereItem;
+    if (whereItem == NULL) {
+        return;
+    }
+    QStandardItem* whatItem = new QStandardItem(what);
+    whereItem->insertRow(0, whatItem);
+}
+
 QStandardItem *TaskTree::findRecursiveChild(const QStandardItem &root, const QString &taskId)
 {
     for(int row = 0; row < root.rowCount(); row++) {
