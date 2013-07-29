@@ -5,10 +5,7 @@ TestTask::TestTask(QObject *parent) :
 {
 }
 
-void TestTask::max()
-{
-    qDebug() << "This is a test: max";
-}
+
 
 void TestTask::nameIsEmpty()
 {
@@ -30,53 +27,80 @@ void TestTask::nameIsEmpty()
 
 void TestTask::getName()
 {
-    Task task = Task("Simple task");
-    QCOMPARE(task.getName(), QString("Simple task"));
+    QFETCH(QString, expected);
+    QFETCH(QString, actual);
+    QCOMPARE(expected, actual);
 }
 
-void TestTask::getAnotherName()
+void TestTask::getName_data()
 {
-    Task task = Task("Another task name");
-    QCOMPARE(task.getName(), QString("Another task name"));
+        QTest::addColumn<QString>("expected");
+        QTest::addColumn<QString>("actual");
+
+        Task task=Task("first task");
+        QTest::newRow("first name") << "first task" << task.getName();
+
+        task.setName("SeConD nAmE task");
+        QTest::newRow("second name")     << "SeConD nAmE task" << task.getName();
+
+        QString third_name="third";
+        task.setName(third_name);
+        QTest::newRow("third name")     << "third" << task.getName();
+
+
 }
+
 
 
 void TestTask::getStartDate() {
-    QDate expected = QDate(2008, 6,10);
-    Task task = Task("Task 1");
-    task.setStartDate(QDate(2008, 6,10));
-    QDate actual = task.getStartDate();
-    QCOMPARE(actual, expected);
+    QFETCH(QDate, expected);
+    QFETCH(QDate, actual);
+    QCOMPARE(expected, actual);
 }
 
-void TestTask::getAnotherStartDate()
+void TestTask::getStartDate_data()
 {
-    QDate expected = QDate(2013, 07, 16);
-    Task task = Task("Task");
-    task.setStartDate(QDate(2013, 07, 16));
-    QDate actual = task.getStartDate();
-    QCOMPARE(actual, expected);
+    QTest::addColumn<QDate>("expected");
+    QTest::addColumn<QDate>("actual");
+
+    Task task=Task("first task");
+    task.setStartDate(QDate(2010, 06, 20));
+    QTest::newRow("first date") << QDate(2010, 06, 20) << task.getStartDate();
+
+    task.setStartDate(QDate(2011, 8, 17));
+    QTest::newRow("second date")     << QDate(2011, 8, 17) << task.getStartDate();
+
+    QDate third_date=QDate(2012, 12, 24);
+    task.setStartDate(third_date);
+    QTest::newRow("third date")     << third_date << task.getStartDate();
+
 }
+
 
 
 void TestTask::getEndDate()
 {
-    QDate expected=QDate(2008, 8, 10);
-    Task task=Task("Test task");
-    task.setEndDate(QDate(2008, 8, 10));
-
-    QDate actual=task.getEndDate();
-    QCOMPARE(actual, expected);
-
-
+    QFETCH(QDate, expected);
+    QFETCH(QDate, actual);
+    QCOMPARE(expected, actual);
 }
 
-void TestTask::getAnotherEndDate()
+void TestTask::getEndDate_data()
 {
-    QDate expected = QDate(2013, 07, 16);
-    Task task = Task("Task");
-    task.setEndDate(QDate(2013, 07, 16));
-    QDate actual = task.getEndDate();
-    QCOMPARE(actual, expected);
+    QTest::addColumn<QDate>("expected");
+    QTest::addColumn<QDate>("actual");
+
+    Task task=Task("first task");
+    task.setEndDate(QDate(2010, 9, 25));
+    QTest::newRow("first date") << QDate(2010, 9, 25) << task.getEndDate();
+
+    task.setEndDate(QDate(2011, 8, 17));
+    QTest::newRow("second date")     << QDate(2011, 8, 17) << task.getEndDate();
+
+    QDate third_date=QDate(2013, 11, 25);
+    task.setEndDate(third_date);
+    QTest::newRow("third date")     << third_date << task.getEndDate();
 }
+
+
 

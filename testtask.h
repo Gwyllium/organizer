@@ -15,15 +15,19 @@ signals:
     
 public slots:
 private slots:
-    void max();
+
     void nameIsEmpty();
+
     void getName();
-    void getAnotherName();
+    void getName_data();
+
+
     void getStartDate();
-    void getAnotherStartDate();
+    void getStartDate_data();
 
     void getEndDate();
-    void getAnotherEndDate();
+    void getEndDate_data();
+
 };
 
 #endif // TESTTASK_H

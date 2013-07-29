@@ -9,7 +9,10 @@ class Task
 {
 public:
     Task(const QString name);
+
     QString getName();
+    void setName(QString name);
+
     void setStartDate(const QDate start);
     void setEndDate(const QDate end);
 

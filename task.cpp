@@ -14,6 +14,11 @@ QString Task::getName()
     return name;
 }
 
+void Task::setName(QString name)
+{
+    this->name=name;
+}
+
 void Task::setStartDate(const QDate start)
 {
     this->startDate = start;
