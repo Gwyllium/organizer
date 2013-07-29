@@ -17,12 +17,15 @@ public slots:
 private slots:
 
     void getName();
-    void getAnotherName();
+    void getName_data();
+
+
 
     void getText();
-    void getAnotherText();
+    void getText_data();
 
     void getDate();
+    void getDate_data();
 
     void getTags();
 

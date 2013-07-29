@@ -11,6 +11,11 @@ QString DiarryRecord::getName()
     return name;
 }
 
+void DiarryRecord::setName(QString name)
+{
+    this->name=name;
+}
+
 QString DiarryRecord::getText()
 {
     return text;

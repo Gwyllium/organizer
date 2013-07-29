@@ -7,45 +7,81 @@ TestDiarryRecord::TestDiarryRecord(QObject *parent) :
 
 void TestDiarryRecord::getName()
 {
-    DiarryRecord rec = DiarryRecord("Simple record");
-    QCOMPARE(rec.getName(), QString("Simple record"));
+    QFETCH(QString, expected);
+    QFETCH(QString, actual);
+    QCOMPARE(expected, actual);
 }
 
-void TestDiarryRecord::getAnotherName()
+void TestDiarryRecord::getName_data()
 {
-    DiarryRecord rec = DiarryRecord("Second record");
-    QCOMPARE(rec.getName(), QString("Second record"));
+    QTest::addColumn<QString>("expected");
+        QTest::addColumn<QString>("actual");
+
+        DiarryRecord rec=DiarryRecord("first record");
+        QTest::newRow("first name") << "first record" << rec.getName();
+
+        rec.setName("Hello");
+        QTest::newRow("second name")     << "Hello" << rec.getName();
+
+        QString third_name="third";
+        rec.setName(third_name);
+        QTest::newRow("third name")     << "third" << rec.getName();
+
 }
+
+
 
 void TestDiarryRecord::getText()
 {
-    QString actual="Hello! I'm John. This is my test";
-    DiarryRecord rec = DiarryRecord("Test text record");
-    rec.setText("Hello! I'm John. This is my test");
-    QString expected=rec.getText();
-
-    QCOMPARE(actual,  expected);
+    QFETCH(QString, expected);
+    QFETCH(QString, actual);
+    QCOMPARE(expected, actual);
 }
 
-void TestDiarryRecord::getAnotherText()
+void TestDiarryRecord::getText_data()
 {
-    QString actual="Hello! I'm not John. This is not my test";
-    DiarryRecord rec = DiarryRecord("Test text record");
-    rec.setText("Hello! I'm not John. This is not my test");
-    QString expected=rec.getText();
+    QTest::addColumn<QString>("expected");
+    QTest::addColumn<QString>("actual");
 
-    QCOMPARE(actual,  expected);
+    DiarryRecord rec=DiarryRecord("first record");
+
+    rec.setText("First text record");
+    QTest::newRow("First record") << "First text record" << rec.getText();
+
+    rec.setText("Second fucking text record");
+    QTest::newRow("Second record")     << "Second fucking text record" << rec.getText();
+
+    QString third_name="This is text";
+    rec.setText(third_name);
+    QTest::newRow("third record")     << "This is text" << rec.getText();
+
 }
+
+
 
 void TestDiarryRecord::getDate()
 {
-    QDate actual=QDate(2010, 8,6);
-    DiarryRecord rec=DiarryRecord("Date test record");
+    QFETCH(QDate, expected);
+    QFETCH(QDate, actual);
+    QCOMPARE(expected, actual);
+}
 
-    rec.setDate(QDate(2010, 8,6));
-    QDate expected=rec.getDate();
+void TestDiarryRecord::getDate_data()
+{
+    QTest::addColumn<QDate>("expected");
+    QTest::addColumn<QDate>("actual");
 
-    QCOMPARE(actual, expected);
+    DiarryRecord rec=DiarryRecord("first record");
+
+    rec.setDate(QDate(2009, 10, 12));
+    QTest::newRow("First record") << QDate(2009, 10, 12) << rec.getDate();
+
+    rec.setDate(QDate(2007, 11, 9));
+    QTest::newRow("Second record")     << QDate(2007, 11, 9)<< rec.getDate();
+
+    QDate date=QDate(2013, 7, 22);
+    rec.setDate(date);
+    QTest::newRow("third record")     << QDate(2013, 7, 22) << rec.getDate();
 }
 
 void TestDiarryRecord::getTags()

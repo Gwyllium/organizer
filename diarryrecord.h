@@ -16,6 +16,7 @@ public:
     DiarryRecord(QString name);
 
     QString getName();
+    void setName(QString name);
 
     QString getText();
     void setText(QString text);
