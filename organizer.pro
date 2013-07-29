@@ -17,7 +17,8 @@ SOURCES += main.cpp \
     task.cpp \
     testtask.cpp \
     diarryrecord.cpp \
-    testdiarryrecord.cpp
+    testdiarryrecord.cpp \
+    tasktree.cpp
 
 # Installation path
 # target.path =
@@ -26,9 +27,14 @@ SOURCES += main.cpp \
 include(qtquick2applicationviewer/qtquick2applicationviewer.pri)
 qtcAddDeployment()
 
+
+# Subprojects
+include(tests/tests.pri)
+
 HEADERS += \
     task.h \
     testtask.h \
     diarryrecord.h \
     testdiarryrecord.h \
-    test.h
+    test.h \
+    tasktree.h
