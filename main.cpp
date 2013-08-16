@@ -11,6 +11,8 @@
 #include "tests/testtasktree_nestinglevel.h"
 #include "tests/testtasktree_toplainlist.h"
 #include "tests/testtastktree_insert.h"
+#include "tests/models/testtaskidlistmodel_data.h"
+#include "tests/models/testtaskidlistmodel_rowcount.h"
 #include "tasktree.h"
 #include <QStringListModel>
 #include <QStringList>
@@ -24,6 +26,8 @@ int main(int argc, char *argv[])
     QTest::qExec(new TestTaskTree_nestingLevel, argc, argv);
     QTest::qExec(new TestTaskTree_toPlainList, argc, argv);
     QTest::qExec(new TestTastkTree_insert, argc, argv);
+    QTest::qExec(new TestTaskIdListModel_data, argc, argv);
+    QTest::qExec(new TestTaskIdListModel_rowCount, argc, argv);
 
     QGuiApplication app(argc, argv);
 
