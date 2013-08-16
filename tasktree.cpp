@@ -1,9 +1,15 @@
 #include "tasktree.h"
 #include "QDebug"
 
+
 TaskTree::TaskTree(QObject *parent) :
     QObject(parent)
 {
+}
+
+void TaskTree::setRootContext(QQmlContext *context)
+{
+    this->context = context;
 }
 
 TaskTree::TaskTree(QStandardItemModel* root)
@@ -75,6 +81,13 @@ void TaskTree::insert(const QString &what, const QString &where)
     }
     QStandardItem* whatItem = new QStandardItem(what);
     whereItem->insertRow(0, whatItem);
+}
+
+void TaskTree::update()
+{
+    QStringList taskIdsList = this->toPlainList();
+    context->setContextProperty("taskModel", QVariant::fromValue(taskIdsList));
+
 }
 
 QStandardItem *TaskTree::findRecursiveChild(const QStandardItem &root, const QString &taskId)

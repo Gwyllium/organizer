@@ -50,10 +50,11 @@ int main(int argc, char *argv[])
     firstLevel[2]->appendColumn(secondLevelB);
     tree->appendColumn(firstLevel);
     TaskTree *taskTree = new TaskTree(tree);
+    taskTree->setRootContext(viewer.rootContext());
     viewer.rootContext()->setContextProperty("taskTree", taskTree);
 
-    QStringList taskIdsList = taskTree->toPlainList();
-    viewer.rootContext()->setContextProperty("taskModel", QVariant::fromValue(taskIdsList));
+   // QStringList taskIdsList = taskTree->toPlainList();
+   // viewer.rootContext()->setContextProperty("taskModel", QVariant::fromValue(taskIdsList));
 
     viewer.setMainQmlFile(QStringLiteral("qml/organizer/main.qml"));
     viewer.showExpanded();

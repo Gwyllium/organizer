@@ -52,9 +52,10 @@ Item {
                 } else {
                     var newTaskId = "555"
                     var where = previouslySelectedTaskIndex.toString();
-                    taskTree.insert(where, newTaskId)
-                    console.debug("task model " + taskModel)
-                    //taskModel.insert(previouslySelectedTaskIndex, newTaskId)
+                    var insert = {'modelData':newTaskId};
+                    taskTree.insert(2, {"modelData": "Pizza"})
+                    taskTree.update();
+                    taskModel.insert(previouslySelectedTaskIndex, newTaskId)
                     taskList.update();
                 }
             }
@@ -67,6 +68,46 @@ Item {
         model: taskModel
         delegate: taskDelegate
         focus: true
+    }
+
+    ListModel {
+        id: taskModel
+        ListElement {
+            modelData: "0"
+        }
+
+        ListElement {
+            modelData: "3"
+        }
+
+        ListElement {
+            modelData: "4"
+        }
+        ListElement {
+            modelData: "8"
+        }
+        ListElement {
+            modelData: "9"
+        }
+        ListElement {
+            modelData: "10"
+        }
+        ListElement {
+            modelData: "1"
+        }
+        ListElement {
+            modelData: "2"
+        }
+        ListElement {
+            modelData: "5"
+        }
+        ListElement {
+            modelData: "6"
+        }
+        ListElement {
+            modelData: "7"
+        }
+
     }
 }
 
