@@ -16,6 +16,8 @@ void TaskIdListModel::insert(int where, const QString &taskId)
 
 QStringList TaskIdListModel::toPlainList()
 {
+    QStringList plainList(m_taskIdsList);
+    return plainList;
 }
 
 int TaskIdListModel::rowCount(const QModelIndex &parent) const
