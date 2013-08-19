@@ -12,6 +12,7 @@ void TaskIdListModel::add(const QString &taskId)
 
 void TaskIdListModel::insert(int where, const QString &taskId)
 {
+    m_taskIdsList.insert(where, taskId);
 }
 
 QStringList TaskIdListModel::toPlainList()

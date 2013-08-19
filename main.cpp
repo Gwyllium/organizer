@@ -14,6 +14,7 @@
 #include "tests/models/testtaskidlistmodel_data.h"
 #include "tests/models/testtaskidlistmodel_rowcount.h"
 #include "tests/models/testtaskidlistmodel_toplainlist.h"
+#include "tests/models/testtaskidlistmodel_insert.h"
 #include "tasktree.h"
 #include <QStringListModel>
 #include <QStringList>
@@ -30,6 +31,7 @@ int main(int argc, char *argv[])
     QTest::qExec(new TestTaskIdListModel_data, argc, argv);
     QTest::qExec(new TestTaskIdListModel_rowCount, argc, argv);
     QTest::qExec(new TestTaskIdListModel_toPlainList, argc, argv);
+    QTest::qExec(new TestTaskIdListModel_insert, argc, argv);
 
     QGuiApplication app(argc, argv);
 
