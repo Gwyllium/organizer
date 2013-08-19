@@ -16,7 +16,8 @@ signals:
 public slots:
 private slots:
     void modelIsEmpty();
-    
+    void oneId();
+    void twoIds();
 };
 
 #endif // TESKTASKIDLISTMODEL_ROWCOUNT_H

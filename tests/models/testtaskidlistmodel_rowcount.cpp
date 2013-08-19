@@ -14,3 +14,26 @@ void TestTaskIdListModel_rowCount::modelIsEmpty()
 
     QCOMPARE(actual, actual);
 }
+
+void TestTaskIdListModel_rowCount::oneId()
+{
+    int expected = 1;
+
+    TaskIdListModel model;
+    model.add("task one");
+    int actual = model.rowCount();
+
+    QCOMPARE(actual, expected);
+}
+
+void TestTaskIdListModel_rowCount::twoIds()
+{
+    int expected = 2;
+
+    TaskIdListModel model;
+    model.add("task one");
+    model.add("task two");
+    int actual = model.rowCount();
+
+    QCOMPARE(actual, expected);
+}
