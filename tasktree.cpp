@@ -90,6 +90,11 @@ void TaskTree::update()
 
 }
 
+QString TaskTree::byPlainIndex(int index)
+{
+    return this->toPlainList()[index];
+}
+
 QStandardItem *TaskTree::findRecursiveChild(const QStandardItem &root, const QString &taskId)
 {
     for(int row = 0; row < root.rowCount(); row++) {

@@ -4,11 +4,11 @@ Item {
     id: taskListMain
     width: 300
     height: 200
+
     property int previouslySelectedTaskIndex: -1
     property QtObject previouslySelectedTextBlock: null
     property int leftMargin: 100
-
-
+    property int someProperty: 216
 
     Component {
         id: taskDelegate
@@ -20,19 +20,25 @@ Item {
                 id: taskDelegateText
                 anchors.verticalCenter: parent.verticalCenter
                 x: {
-                    console.debug("item data: " + modelData)
-                    var taskId = parseInt(modelData)
+                    var modelData = display
+            //        console.debug("item data: " + modelData)
+                    var taskId = modelData
+              //      console.debug("task id: " + taskId)
                     var nestingLevel = taskTree.nestingLevel(taskId)
-                    console.debug("nesting level: " + nestingLevel)
+                //    console.debug("nesting level: " + nestingLevel)
                     x = 50 + leftMargin * nestingLevel
-                    console.debug("all tasks " + allTasks)
+                  //  console.debug("all tasks " + allTasks)
                 }
-                text: "<b>" + "task " + parseInt(modelData) + "</b>"
+                text: {
+                    var modelData = display
+                    "<b>" + "task " + modelData + "</b>"
+                }
             }
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
                     console.debug("click")
+                    console.debug("current index: " + taskList.currentIndex)
                     if (previouslySelectedTaskIndex == -1) {
                         taskDelegateText.color = "red";
                         previouslySelectedTextBlock = taskDelegateText
@@ -45,18 +51,20 @@ Item {
                     }
                 }
             }
-            Keys.onRightPressed:  {
+            Keys.onRightPressed: {
+                console.debug("some property: " + someProperty)
                 console.debug("Key 'right' pressed")
                 if (previouslySelectedTaskIndex == -1) {
                     console.debug("There is not selected task. Do nothing.")
                 } else {
-                    var newTaskId = "555"
-                    var where = previouslySelectedTaskIndex.toString();
-                    var insert = {'modelData':newTaskId};
-                    taskTree.insert(2, {"modelData": "Pizza"})
-                    taskTree.update();
-                    taskModel.insert(previouslySelectedTaskIndex, newTaskId)
-                    taskList.update();
+                    var newTaskId = "abcdefg"
+                    var selectedIndex = taskList.currentIndex
+                    console.log("previously selected index: " + previouslySelectedTaskIndex)
+                    console.log("selected index: " + selectedIndex)
+                    var whereToInsert = taskTree.byPlainIndex(selectedIndex)
+                    console.log("where to insert: " + whereToInsert)
+                    taskTree.insert(newTaskId, whereToInsert)
+                    taskIdModel.insert(selectedIndex, newTaskId)
                 }
             }
         }
@@ -65,50 +73,49 @@ Item {
     ListView {
         id: taskList
         anchors.fill: parent
-        model: taskModel
+        model: taskIdModel
         delegate: taskDelegate
         focus: true
     }
 
-    ListModel {
-        id: taskModel
-        ListElement {
-            modelData: "0"
-        }
+//    ListModel {
+//        id: taskModel
+//        ListElement {
+//            modelData: "0"
+//        }
 
-        ListElement {
-            modelData: "3"
-        }
+//        ListElement {
+//            modelData: "3"
+//        }
 
-        ListElement {
-            modelData: "4"
-        }
-        ListElement {
-            modelData: "8"
-        }
-        ListElement {
-            modelData: "9"
-        }
-        ListElement {
-            modelData: "10"
-        }
-        ListElement {
-            modelData: "1"
-        }
-        ListElement {
-            modelData: "2"
-        }
-        ListElement {
-            modelData: "5"
-        }
-        ListElement {
-            modelData: "6"
-        }
-        ListElement {
-            modelData: "7"
-        }
-
-    }
+//        ListElement {
+//            modelData: "4"
+//        }
+//        ListElement {
+//            modelData: "8"
+//        }
+//        ListElement {
+//            modelData: "9"
+//        }
+//        ListElement {
+//            modelData: "10"
+//        }
+//        ListElement {
+//            modelData: "1"
+//        }
+//        ListElement {
+//            modelData: "2"
+//        }
+//        ListElement {
+//            modelData: "5"
+//        }
+//        ListElement {
+//            modelData: "6"
+//        }
+//        ListElement {
+//            modelData: "7"
+//        }
+//    }
 }
 
 

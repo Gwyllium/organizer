@@ -12,8 +12,8 @@ class TaskIdListModel : public QAbstractListModel
 public:
     explicit TaskIdListModel(QObject *parent = 0);
     void add(const QString& taskId);
-    void insert(int where, const QString& taskId);
-    QStringList toPlainList();
+    Q_INVOKABLE void insert(int where, const QString& taskId);
+    Q_INVOKABLE QStringList toPlainList();
     int rowCount(const QModelIndex &parent = QModelIndex()) const;
     QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
     

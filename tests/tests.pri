@@ -7,7 +7,8 @@ HEADERS += \
     tests/models/testtaskidlistmodel_data.h \
     tests/models/testtaskidlistmodel_rowcount.h \
     tests/models/testtaskidlistmodel_toplainlist.h \
-    tests/models/testtaskidlistmodel_insert.h
+    tests/models/testtaskidlistmodel_insert.h \
+    tests/testtasktree_byplainindex.h
 SOURCES += \
     tests/testtree.cpp \
     tests/testtasktree_findrecursive.cpp \
@@ -17,4 +18,5 @@ SOURCES += \
     tests/models/testtaskidlistmodel_data.cpp \
     tests/models/testtaskidlistmodel_rowcount.cpp \
     tests/models/testtaskidlistmodel_toplainlist.cpp \
-    tests/models/testtaskidlistmodel_insert.cpp
+    tests/models/testtaskidlistmodel_insert.cpp \
+    tests/testtasktree_byplainindex.cpp

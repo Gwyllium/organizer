@@ -18,6 +18,7 @@ public:
     QList<QString> toPlainList();
     Q_INVOKABLE void insert(const QString &what, const QString &where);
     Q_INVOKABLE void update();
+    Q_INVOKABLE QString byPlainIndex(int index);
 signals:
 
 public slots:

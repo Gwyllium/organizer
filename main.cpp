@@ -15,9 +15,12 @@
 #include "tests/models/testtaskidlistmodel_rowcount.h"
 #include "tests/models/testtaskidlistmodel_toplainlist.h"
 #include "tests/models/testtaskidlistmodel_insert.h"
+#include "tests/testtasktree_byplainindex.h"
 #include "tasktree.h"
+#include "taskidlistmodel.h"
 #include <QStringListModel>
 #include <QStringList>
+#include <QDebug>
 
 int main(int argc, char *argv[])
 {
@@ -32,6 +35,7 @@ int main(int argc, char *argv[])
     QTest::qExec(new TestTaskIdListModel_rowCount, argc, argv);
     QTest::qExec(new TestTaskIdListModel_toPlainList, argc, argv);
     QTest::qExec(new TestTaskIdListModel_insert, argc, argv);
+    QTest::qExec(new TestTaskTree_byPlainIndex, argc, argv);
 
     QGuiApplication app(argc, argv);
 
@@ -61,8 +65,14 @@ int main(int argc, char *argv[])
     taskTree->setRootContext(viewer.rootContext());
     viewer.rootContext()->setContextProperty("taskTree", taskTree);
 
-   // QStringList taskIdsList = taskTree->toPlainList();
-   // viewer.rootContext()->setContextProperty("taskModel", QVariant::fromValue(taskIdsList));
+    TaskIdListModel *taskIdModel = new TaskIdListModel();
+    QStringList taskIdsList = taskTree->toPlainList();
+    for(int i = 0; i < taskIdsList.count(); i++) {
+        QString currentId = taskIdsList[i];
+        taskIdModel->add(currentId);
+    }
+    qDebug() << taskIdModel->toPlainList();
+    viewer.rootContext()->setContextProperty("taskIdModel", taskIdModel);
 
     viewer.setMainQmlFile(QStringLiteral("qml/organizer/main.qml"));
     viewer.showExpanded();
