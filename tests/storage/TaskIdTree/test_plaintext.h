@@ -2,6 +2,8 @@
 #define TEST__PLAINTEXT_H
 
 #include <QObject>
+#include <QTest>
+#include "taskidtree.h"
 
 class Test_plainText : public QObject
 {
@@ -12,7 +14,9 @@ public:
 signals:
 
 public slots:
-
+private slots:
+    void treeIsEmpty();
+    void oneItemInTree();
 };
 
 #endif // TEST__PLAINTEXT_H

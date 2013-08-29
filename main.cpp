@@ -16,6 +16,7 @@
 #include "tests/models/testtaskidlistmodel_toplainlist.h"
 #include "tests/models/testtaskidlistmodel_insert.h"
 #include "tests/testtasktree_byplainindex.h"
+#include "tests/storage/TaskIdTree/test_plaintext.h"
 #include "tasktree.h"
 #include "taskidlistmodel.h"
 #include <QStringListModel>
@@ -36,7 +37,7 @@ int main(int argc, char *argv[])
     QTest::qExec(new TestTaskIdListModel_toPlainList, argc, argv);
     QTest::qExec(new TestTaskIdListModel_insert, argc, argv);
     QTest::qExec(new TestTaskTree_byPlainIndex, argc, argv);
-
+    QTest::qExec(new Test_plainText, argc, argv);
     QGuiApplication app(argc, argv);
 
     QtQuick2ApplicationViewer viewer;
