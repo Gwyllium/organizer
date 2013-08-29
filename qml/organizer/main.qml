@@ -38,16 +38,16 @@ Item {
                 anchors.fill: parent
                 onClicked: {
                     console.debug("click")
-                    console.debug("current index: " + taskList.currentIndex)
+                    console.debug("current index: " + index)
                     if (previouslySelectedTaskIndex == -1) {
                         taskDelegateText.color = "red";
                         previouslySelectedTextBlock = taskDelegateText
-                        previouslySelectedTaskIndex = taskList.currentIndex
+                        previouslySelectedTaskIndex = index
                     } else {
                         previouslySelectedTextBlock.color = "black"
                         taskDelegateText.color = "red"
-                        previouslySelectedTaskIndex = taskList.currentIndex
                         previouslySelectedTextBlock = taskDelegateText
+                        previouslySelectedTaskIndex = index
                     }
                 }
             }
@@ -58,13 +58,12 @@ Item {
                     console.debug("There is not selected task. Do nothing.")
                 } else {
                     var newTaskId = "abcdefg"
-                    var selectedIndex = taskList.currentIndex
-                    console.log("previously selected index: " + previouslySelectedTaskIndex)
+                    var selectedIndex = previouslySelectedTaskIndex
                     console.log("selected index: " + selectedIndex)
                     var whereToInsert = taskTree.byPlainIndex(selectedIndex)
                     console.log("where to insert: " + whereToInsert)
                     taskTree.insert(newTaskId, whereToInsert)
-                    taskIdModel.insert(selectedIndex, newTaskId)
+                    taskIdModel.insert(selectedIndex + 1, newTaskId)
                 }
             }
         }
