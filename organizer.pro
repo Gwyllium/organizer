@@ -19,7 +19,8 @@ SOURCES += main.cpp \
     diarryrecord.cpp \
     testdiarryrecord.cpp \
     tasktree.cpp \
-    taskidlistmodel.cpp
+    taskidlistmodel.cpp \
+    taskidtree.cpp
 
 # Installation path
 # target.path =
@@ -39,4 +40,5 @@ HEADERS += \
     testdiarryrecord.h \
     test.h \
     tasktree.h \
-    taskidlistmodel.h
+    taskidlistmodel.h \
+    taskidtree.h
