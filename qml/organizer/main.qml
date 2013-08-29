@@ -1,5 +1,7 @@
 import QtQuick 2.0
 
+// в qml-файле есть корневой элемент
+// Item не отображается
 Item {
     id: taskListMain
     width: 300
@@ -9,14 +11,22 @@ Item {
     property QtObject previouslySelectedTextBlock: null
     property int leftMargin: 100
 
+    // Component - предоставляет базовую функциональность для работы с визуальными элементами.
+    // Он содержит в себе подэлементы и код (обработчики).
+    // Задается разметка компонента, а сами данные могут браться из некоторого источника
+    // (в нашем случае это модель списка). А поскольку модель, разметка и обработчики определены внутри
+    // одного и того же Item'а, то они "знают" друг о друге.
     Component {
         id: taskDelegate
         Rectangle {
             id: taskRectangle
             height: 50
             width: parent.width
+            // здесь внутри прямоугольника задается текстовая область
             Text {
                 id: taskDelegateText
+                // здесь описана разметка текстовой области
+                // данные берутся из модели списка taskIdModel
                 anchors.verticalCenter: parent.verticalCenter
                 x: {
                     var modelData = display
@@ -29,6 +39,7 @@ Item {
                     "<b>" + "task " + modelData + "</b>"
                 }
             }
+            // здесь описаны обработчики прямоугольной области
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
@@ -63,11 +74,15 @@ Item {
         }
     }
 
+    // здесь для отображения используется список
     ListView {
         id: taskList
-        anchors.fill: parent
+        // модель - это источник данных; поддерживается автоматическое обновление списка при изменении модели
         model: taskIdModel
+        // делегат - это что-то вроде шаблона, по которому будет отображаться и обрабатываться список
         delegate: taskDelegate
+        // прочие свойства списка
+        anchors.fill: parent
         focus: true
     }
 }
