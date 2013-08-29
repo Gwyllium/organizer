@@ -17,9 +17,22 @@ void Test_plainText::treeIsEmpty()
 
 void Test_plainText::oneItemInTree()
 {
-    QString expected = "[first item, 0]";
+    QString expected = "[first item-0]";
     TaskIdTree tree;
     tree.add("first item");
+    QString actual = tree.plainText();
+
+    QCOMPARE(actual, expected);
+}
+
+void Test_plainText::severalItemsButOnlyInFirstLevel()
+{
+    QString expected = "[first item-0][second item-0][third item-0]";
+
+    TaskIdTree tree;
+    tree.add("first item");
+    tree.add("second item");
+    tree.add("third item");
     QString actual = tree.plainText();
 
     QCOMPARE(actual, expected);

@@ -17,6 +17,7 @@ public slots:
 private slots:
     void treeIsEmpty();
     void oneItemInTree();
+    void severalItemsButOnlyInFirstLevel();
 };
 
 #endif // TEST__PLAINTEXT_H
