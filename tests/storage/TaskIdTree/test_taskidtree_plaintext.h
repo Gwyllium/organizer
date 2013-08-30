@@ -5,11 +5,11 @@
 #include <QTest>
 #include "taskidtree.h"
 
-class Test_plainText : public QObject
+class Test_TaskIdTree_plainText : public QObject
 {
     Q_OBJECT
 public:
-    explicit Test_plainText(QObject *parent = 0);
+    explicit Test_TaskIdTree_plainText(QObject *parent = 0);
 
 signals:
 

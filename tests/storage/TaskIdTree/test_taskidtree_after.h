@@ -5,11 +5,11 @@
 #include <QTest>
 #include "taskidtree.h"
 
-class Test_after : public QObject
+class Test_TaskIdTree_after : public QObject
 {
     Q_OBJECT
 public:
-    explicit Test_after(QObject *parent = 0);
+    explicit Test_TaskIdTree_after(QObject *parent = 0);
 signals:
     
 public slots:

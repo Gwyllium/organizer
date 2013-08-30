@@ -1,11 +1,11 @@
-#include "test_plaintext.h"
+#include "test_taskidtree_plaintext.h"
 
-Test_plainText::Test_plainText(QObject *parent) :
+Test_TaskIdTree_plainText::Test_TaskIdTree_plainText(QObject *parent) :
     QObject(parent)
 {
 }
 
-void Test_plainText::treeIsEmpty()
+void Test_TaskIdTree_plainText::treeIsEmpty()
 {
     QString expected = "";
 
@@ -15,7 +15,7 @@ void Test_plainText::treeIsEmpty()
     QCOMPARE(actual, expected);
 }
 
-void Test_plainText::oneItemInTree()
+void Test_TaskIdTree_plainText::oneItemInTree()
 {
     QString expected = "[first item-0]";
     TaskIdTree tree;
@@ -25,7 +25,7 @@ void Test_plainText::oneItemInTree()
     QCOMPARE(actual, expected);
 }
 
-void Test_plainText::severalItemsButOnlyInFirstLevel()
+void Test_TaskIdTree_plainText::severalItemsButOnlyInFirstLevel()
 {
     QString expected = "[first item-0][second item-0][third item-0]";
 
