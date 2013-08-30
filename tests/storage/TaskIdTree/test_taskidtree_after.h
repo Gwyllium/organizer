@@ -15,7 +15,11 @@ signals:
 public slots:
 private slots:
     void treeIsEmpty();
-    
+    void plainTextOfEndingItemFromFirstLevel();
+    void plainTextOfEndingItemFromFirstMultipleItemsLevel();
+    void constructThreeItemsInTwoLevels();
+    void constructSeveralItemsInTwoLevels();
+    void constructSeveralItemsInThreeLevels();
 };
 
 #endif // TEST_AFTER_H

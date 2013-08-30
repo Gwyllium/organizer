@@ -17,7 +17,7 @@ void Test_TaskIdTree_plainText::treeIsEmpty()
 
 void Test_TaskIdTree_plainText::oneItemInTree()
 {
-    QString expected = "[first item-0]";
+    QString expected = "[first item->0]";
     TaskIdTree tree;
     tree.add("first item");
     QString actual = tree.plainText();
@@ -27,7 +27,7 @@ void Test_TaskIdTree_plainText::oneItemInTree()
 
 void Test_TaskIdTree_plainText::severalItemsButOnlyInFirstLevel()
 {
-    QString expected = "[first item-0][second item-0][third item-0]";
+    QString expected = "[first item->0][second item->0][third item->0]";
 
     TaskIdTree tree;
     tree.add("first item");
