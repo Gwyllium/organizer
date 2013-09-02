@@ -62,3 +62,27 @@ void Test_TaskIdTree_plainList::severalItemsTwoLevels()
 
     QCOMPARE(actual, expected);
 }
+
+void Test_TaskIdTree_plainList::severalItemsThreeLevels()
+{
+    QStringList expected;
+    expected << "A";
+    expected << "B";
+    expected << "nested A";
+    expected << "nested B";
+    expected << "nested C";
+    expected << "nested D";
+    expected << "C";
+
+    TaskIdTree tree;
+    tree.add("A");
+    tree.add("B");
+    tree.add("C");
+    tree.after(1)->add("nested A");
+    tree.after(1)->add("nested B");
+    tree.after(1)->after(1)->add("nested C");
+    tree.after(1)->after(1)->add("nested D");
+    QStringList actual = tree.plainList();
+
+    QCOMPARE(actual, expected);
+}

@@ -19,7 +19,7 @@ private slots:
     void oneItemInTree();
     void severalItemsOneLevel();
     void severalItemsTwoLevels();
-    
+    void severalItemsThreeLevels();
 };
 
 #endif // TEST_TASKIDTREE_PLAINLIST_H
