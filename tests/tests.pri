@@ -10,7 +10,8 @@ HEADERS += \
     tests/models/testtaskidlistmodel_insert.h \
     tests/testtasktree_byplainindex.h \
     tests/storage/TaskIdTree/test_taskidtree_after.h \
-    tests/storage/TaskIdTree/test_taskidtree_plaintext.h
+    tests/storage/TaskIdTree/test_taskidtree_plaintext.h \
+    tests/storage/TaskIdTree/test_taskidtree_plainlist.h
 SOURCES += \
     tests/testtree.cpp \
     tests/testtasktree_findrecursive.cpp \
@@ -23,4 +24,5 @@ SOURCES += \
     tests/models/testtaskidlistmodel_insert.cpp \
     tests/testtasktree_byplainindex.cpp \
     tests/storage/TaskIdTree/test_taskidtree_after.cpp \
-    tests/storage/TaskIdTree/test_taskidtree_plaintext.cpp
+    tests/storage/TaskIdTree/test_taskidtree_plaintext.cpp \
+    tests/storage/TaskIdTree/test_taskidtree_plainlist.cpp

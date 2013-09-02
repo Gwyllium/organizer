@@ -5,11 +5,6 @@ TaskIdTree::TaskIdTree(QObject *parent) :
 {
 }
 
-QString TaskIdTree::plainText()
-{
-    return plainText(0);
-}
-
 QString TaskIdTree::plainText(int nestingLevel)
 {
     QString fullText;
@@ -21,6 +16,26 @@ QString TaskIdTree::plainText(int nestingLevel)
         fullText += m_children[i]->plainText(nestingLevel + 1);
     }
     return fullText;
+}
+
+QString TaskIdTree::plainText()
+{
+    return plainText(0);
+}
+
+QList<QString> TaskIdTree::plainList()
+{
+    QList<QString> result;
+    plainList(result);
+    return result;
+}
+
+void TaskIdTree::plainList(QList<QString> &allIds)
+{
+    for(int i = 0; i < m_children.length(); i++) {
+        allIds << m_children[i]->m_value;
+        m_children[i]->plainList(allIds);
+    }
 }
 
 void TaskIdTree::add(const QString &taskId)

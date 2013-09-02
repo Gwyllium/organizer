@@ -9,6 +9,7 @@ class TaskIdTree : public QObject
 public:
     explicit TaskIdTree(QObject *parent = 0);
     QString plainText();
+    QList<QString> plainList();
     void add(const QString& taskId);
     TaskIdTree* after(int index);
 signals:
@@ -18,6 +19,7 @@ private:
     QString m_value;
     QList<TaskIdTree*> m_children;
     QString plainText(int nestingLevel);
+    void plainList(QList<QString> &allIds);
 
 };
 
