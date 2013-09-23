@@ -4,21 +4,21 @@
 #include <QQmlContext>
 #include <QQmlContext>
 #include "qtquick2applicationviewer.h"
-#include "testtask.h"
-#include "testdiarryrecord.h"
-#include "tests/testtree.h"
-#include "tests/testtasktree_findrecursive.h"
-#include "tests/testtasktree_nestinglevel.h"
-#include "tests/testtasktree_toplainlist.h"
-#include "tests/testtastktree_insert.h"
-#include "tests/models/testtaskidlistmodel_data.h"
-#include "tests/models/testtaskidlistmodel_rowcount.h"
-#include "tests/models/testtaskidlistmodel_toplainlist.h"
-#include "tests/models/testtaskidlistmodel_insert.h"
-#include "tests/testtasktree_byplainindex.h"
-#include "tests/storage/TaskIdTree/test_taskidtree_plaintext.h"
-#include "tests/storage/TaskIdTree/test_taskidtree_after.h"
-#include "tests/storage/TaskIdTree/test_taskidtree_plainlist.h"
+//#include "testtask.h"
+//#include "testdiarryrecord.h"
+//#include "tests/testtree.h"
+//#include "tests/testtasktree_findrecursive.h"
+//#include "tests/testtasktree_nestinglevel.h"
+//#include "tests/testtasktree_toplainlist.h"
+//#include "tests/testtastktree_insert.h"
+//#include "tests/models/testtaskidlistmodel_data.h"
+//#include "tests/models/testtaskidlistmodel_rowcount.h"
+//#include "tests/models/testtaskidlistmodel_toplainlist.h"
+//#include "tests/models/testtaskidlistmodel_insert.h"
+//#include "tests/testtasktree_byplainindex.h"
+//#include "tests/storage/TaskIdTree/test_taskidtree_plaintext.h"
+//#include "tests/storage/TaskIdTree/test_taskidtree_after.h"
+//#include "tests/storage/TaskIdTree/test_taskidtree_plainlist.h"
 #include "tasktree.h"
 #include "taskidlistmodel.h"
 #include <QStringListModel>
@@ -27,21 +27,21 @@
 
 int main(int argc, char *argv[])
 {
-    QTest::qExec(new TestTask, argc, argv);
-    QTest::qExec(new TestDiarryRecord, argc, argv);
-    QTest::qExec(new TestTree, argc, argv);
-    QTest::qExec(new TestTaskTree_findRecursive, argc, argv);
-    QTest::qExec(new TestTaskTree_nestingLevel, argc, argv);
-    QTest::qExec(new TestTaskTree_toPlainList, argc, argv);
-    QTest::qExec(new TestTastkTree_insert, argc, argv);
-    QTest::qExec(new TestTaskIdListModel_data, argc, argv);
-    QTest::qExec(new TestTaskIdListModel_rowCount, argc, argv);
-    QTest::qExec(new TestTaskIdListModel_toPlainList, argc, argv);
-    QTest::qExec(new TestTaskIdListModel_insert, argc, argv);
-    QTest::qExec(new TestTaskTree_byPlainIndex, argc, argv);
-    QTest::qExec(new Test_TaskIdTree_plainText, argc, argv);
-    QTest::qExec(new Test_TaskIdTree_after, argc, argv);
-    QTest::qExec(new Test_TaskIdTree_plainList, argc, argv);
+//    QTest::qExec(new TestTask, argc, argv);
+//    QTest::qExec(new TestDiarryRecord, argc, argv);
+//    QTest::qExec(new TestTree, argc, argv);
+//    QTest::qExec(new TestTaskTree_findRecursive, argc, argv);
+//    QTest::qExec(new TestTaskTree_nestingLevel, argc, argv);
+//    QTest::qExec(new TestTaskTree_toPlainList, argc, argv);
+//    QTest::qExec(new TestTastkTree_insert, argc, argv);
+//    QTest::qExec(new TestTaskIdListModel_data, argc, argv);
+//    QTest::qExec(new TestTaskIdListModel_rowCount, argc, argv);
+//    QTest::qExec(new TestTaskIdListModel_toPlainList, argc, argv);
+//    QTest::qExec(new TestTaskIdListModel_insert, argc, argv);
+//    QTest::qExec(new TestTaskTree_byPlainIndex, argc, argv);
+//    QTest::qExec(new Test_TaskIdTree_plainText, argc, argv);
+//    QTest::qExec(new Test_TaskIdTree_after, argc, argv);
+//    QTest::qExec(new Test_TaskIdTree_plainList, argc, argv);
     QGuiApplication app(argc, argv);
 
     QtQuick2ApplicationViewer viewer;
@@ -76,7 +76,7 @@ int main(int argc, char *argv[])
         QString currentId = taskIdsList[i];
         taskIdModel->add(currentId);
     }
-    qDebug() << taskIdModel->toPlainList();
+   // qDebug() << taskIdModel->toPlainList();
     viewer.rootContext()->setContextProperty("taskIdModel", taskIdModel);
 
     viewer.setMainQmlFile(QStringLiteral("qml/organizer/main.qml"));

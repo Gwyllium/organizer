@@ -43,6 +43,7 @@ Item {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
+                    Qt.quit(0);
                     console.debug("click")
                     console.debug("current index: " + index)
                     if (previouslySelectedTaskIndex == -1) {
