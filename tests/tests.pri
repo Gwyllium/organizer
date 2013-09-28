@@ -14,7 +14,8 @@ HEADERS += \
     tests/storage/TaskIdTree/test_taskidtree_plainlist.h \
     tests/alltests.h \
     tests/domain/Task/testtask_all.h \
-    tests/domain/DiaryRecord/testdiaryrecord_all.h
+    tests/domain/DiaryRecord/testdiaryrecord_all.h \
+    tests/test.h
 SOURCES += \
     tests/testtree.cpp \
     tests/testtasktree_findrecursive.cpp \

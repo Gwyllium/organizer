@@ -6,4 +6,3 @@
 #include <QException>
 
 #endif // TEST_H
-

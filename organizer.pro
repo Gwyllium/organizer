@@ -34,7 +34,6 @@ include(tests/tests.pri)
 HEADERS += \
     task.h \
     diarryrecord.h \
-    test.h \
     tasktree.h \
     taskidlistmodel.h \
     taskidtree.h
