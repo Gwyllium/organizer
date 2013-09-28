@@ -15,7 +15,6 @@ QML_IMPORT_PATH =
 # The .cpp file which was generated for your project. Feel free to hack it.
 SOURCES += main.cpp \
     task.cpp \
-    testtask.cpp \
     diarryrecord.cpp \
     testdiarryrecord.cpp \
     tasktree.cpp \
@@ -35,7 +34,6 @@ include(tests/tests.pri)
 
 HEADERS += \
     task.h \
-    testtask.h \
     diarryrecord.h \
     testdiarryrecord.h \
     test.h \

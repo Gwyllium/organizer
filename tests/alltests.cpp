@@ -1,6 +1,5 @@
 #include "alltests.h"
 
-#include "testtask.h"
 #include "testdiarryrecord.h"
 #include "tests/testtree.h"
 #include "tests/testtasktree_findrecursive.h"
@@ -22,7 +21,6 @@ void runAllTests() {
 
     int argc = 0;
     char** argv = NULL;
-    QTest::qExec(new TestTask, argc, argv);
     QTest::qExec(new TestDiarryRecord, argc, argv);
     QTest::qExec(new TestTree, argc, argv);
     QTest::qExec(new TestTaskTree_findRecursive, argc, argv);

@@ -13,7 +13,8 @@ HEADERS += \
     tests/storage/TaskIdTree/test_taskidtree_plaintext.h \
     tests/storage/TaskIdTree/test_taskidtree_plainlist.h \
     tests/alltests.h \
-    tests/domain/Task/testtask_all.h
+    tests/domain/Task/testtask_all.h \
+    tests/domain/DiaryRecord/testdiaryrecord_all.h
 SOURCES += \
     tests/testtree.cpp \
     tests/testtasktree_findrecursive.cpp \
@@ -29,4 +30,5 @@ SOURCES += \
     tests/storage/TaskIdTree/test_taskidtree_plaintext.cpp \
     tests/storage/TaskIdTree/test_taskidtree_plainlist.cpp \
     tests/alltests.cpp \
-    tests/domain/Task/testtask_all.cpp
+    tests/domain/Task/testtask_all.cpp \
+    tests/domain/DiaryRecord/testdiaryrecord_all.cpp
