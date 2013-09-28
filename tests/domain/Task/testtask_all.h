@@ -3,6 +3,9 @@
 
 #include <QObject>
 #include <QTest>
+#include <QDebug>
+
+#include "task.h"
 
 class TestTask_all : public QObject
 {
@@ -13,9 +16,22 @@ public:
 signals:
 
 public slots:
+
 private slots:
-    void sampleTest();
+    void nameIsEmpty();
+
+    void getName();
+    void getName_data();
+
+
+    void getStartDate();
+    void getStartDate_data();
+
+    void getEndDate();
+    void getEndDate_data();
 
 };
 
 #endif // TESTTASK_ALL_H
+
+
