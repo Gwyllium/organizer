@@ -16,7 +16,6 @@ QML_IMPORT_PATH =
 SOURCES += main.cpp \
     task.cpp \
     diarryrecord.cpp \
-    testdiarryrecord.cpp \
     tasktree.cpp \
     taskidlistmodel.cpp \
     taskidtree.cpp
@@ -35,7 +34,6 @@ include(tests/tests.pri)
 HEADERS += \
     task.h \
     diarryrecord.h \
-    testdiarryrecord.h \
     test.h \
     tasktree.h \
     taskidlistmodel.h \

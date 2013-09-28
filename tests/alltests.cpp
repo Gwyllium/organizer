@@ -1,6 +1,5 @@
 #include "alltests.h"
 
-#include "testdiarryrecord.h"
 #include "tests/testtree.h"
 #include "tests/testtasktree_findrecursive.h"
 #include "tests/testtasktree_nestinglevel.h"
@@ -15,13 +14,13 @@
 #include "tests/storage/TaskIdTree/test_taskidtree_after.h"
 #include "tests/storage/TaskIdTree/test_taskidtree_plainlist.h"
 #include "tests/domain/Task/testtask_all.h"
+#include "tests/domain/DiaryRecord/testdiaryrecord_all.h"
 
 void runAllTests() {
     qDebug() << "Running all tests started...";
 
     int argc = 0;
     char** argv = NULL;
-    QTest::qExec(new TestDiarryRecord, argc, argv);
     QTest::qExec(new TestTree, argc, argv);
     QTest::qExec(new TestTaskTree_findRecursive, argc, argv);
     QTest::qExec(new TestTaskTree_nestingLevel, argc, argv);
@@ -36,6 +35,7 @@ void runAllTests() {
     QTest::qExec(new Test_TaskIdTree_after, argc, argv);
     QTest::qExec(new Test_TaskIdTree_plainList, argc, argv);
     QTest::qExec(new TestTask_all, argc, argv);
+    QTest::qExec(new TestDiaryRecord_all, argc, argv);
 
     qDebug() << "Running all tests finished...";
 }
