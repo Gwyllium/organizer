@@ -1,5 +1,4 @@
 HEADERS += \
-    tests/testtree.h \
     tests/models/testtaskidlistmodel_data.h \
     tests/models/testtaskidlistmodel_rowcount.h \
     tests/models/testtaskidlistmodel_toplainlist.h \
@@ -13,7 +12,6 @@ HEADERS += \
     tests/test.h \
     tests/storage/TaskIdTree/test_taskidtree_nestinglevel.h
 SOURCES += \
-    tests/testtree.cpp \
     tests/models/testtaskidlistmodel_data.cpp \
     tests/models/testtaskidlistmodel_rowcount.cpp \
     tests/models/testtaskidlistmodel_toplainlist.cpp \
