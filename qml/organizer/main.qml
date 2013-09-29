@@ -4,8 +4,8 @@ import QtQuick 2.0
 // Item не отображается
 Item {
     id: taskListMain
-    width: 300
-    height: 580
+    width: 320
+    height: 400
 
     property int previouslySelectedTaskIndex: -1
     property QtObject previouslySelectedTextBlock: null
@@ -43,7 +43,6 @@ Item {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    Qt.quit(0);
                     console.debug("click")
                     console.debug("current index: " + index)
                     if (previouslySelectedTaskIndex == -1) {
@@ -58,20 +57,6 @@ Item {
                     }
                 }
             }
-//            Keys.onRightPressed: {
-//                console.debug("Key 'right' pressed")
-//                if (previouslySelectedTaskIndex == -1) {
-//                    console.debug("There is not selected task. Do nothing.")
-//                } else {
-//                    var newTaskId = "abcdefg"
-//                    var selectedIndex = previouslySelectedTaskIndex
-//                    console.log("selected index: " + selectedIndex)
-//                    var whereToInsert = taskTree.byPlainIndex(selectedIndex)
-//                    console.log("where to insert: " + whereToInsert)
-//                    taskTree.insert(newTaskId, whereToInsert)
-//                    taskIdModel.insert(selectedIndex + 1, newTaskId)
-//                }
-//            }
         }
     }
 
