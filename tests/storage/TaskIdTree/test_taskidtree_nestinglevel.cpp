@@ -38,7 +38,7 @@ void Test_TaskIdTree_nestingLevel::treeContainsOneItemButGivenIdIsNotFound()
     QCOMPARE(actual, expected);
 }
 
-void Test_TaskIdTree_nestingLevel::treeContainsSeveralItemsInOneLevel()
+void Test_TaskIdTree_nestingLevel::oneLevel()
 {
     int expected = 0;
 
@@ -51,7 +51,7 @@ void Test_TaskIdTree_nestingLevel::treeContainsSeveralItemsInOneLevel()
     QCOMPARE(actual, expected);
 }
 
-void Test_TaskIdTree_nestingLevel::treeContainsSeveralItemsInOneLevelButGivenIdIsNotFound()
+void Test_TaskIdTree_nestingLevel::oneLevelButGivenIdIsNotFound()
 {
     int expected = -1;
 
@@ -64,7 +64,7 @@ void Test_TaskIdTree_nestingLevel::treeContainsSeveralItemsInOneLevelButGivenIdI
     QCOMPARE(actual, expected);
 }
 
-void Test_TaskIdTree_nestingLevel::treeContainsSeveralItemsInTwoLevels()
+void Test_TaskIdTree_nestingLevel::twoLevels()
 {
     int expected = 1;
 
@@ -79,7 +79,7 @@ void Test_TaskIdTree_nestingLevel::treeContainsSeveralItemsInTwoLevels()
     QCOMPARE(actual, expected);
 }
 
-void Test_TaskIdTree_nestingLevel::treeContainsSeveralItemsInTwoLevelsButGivenIdIsNotFound()
+void Test_TaskIdTree_nestingLevel::twoLevelsButGivenIdIsNotFound()
 {
     int expected = -1;
 
