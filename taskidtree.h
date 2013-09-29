@@ -12,6 +12,7 @@ public:
     QList<QString> plainList();
     void add(const QString& taskId);
     TaskIdTree* after(int index);
+    int nestingLevel(const QString& taskId);
 signals:
     
 public slots:

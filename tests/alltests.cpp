@@ -15,6 +15,7 @@
 #include "tests/storage/TaskIdTree/test_taskidtree_plainlist.h"
 #include "tests/domain/Task/testtask_all.h"
 #include "tests/domain/DiaryRecord/testdiaryrecord_all.h"
+#include "tests/storage/TaskIdTree/test_taskidtree_nestinglevel.h"
 
 void runAllTests() {
     qDebug() << "Running all tests started...";
@@ -36,6 +37,7 @@ void runAllTests() {
     QTest::qExec(new Test_TaskIdTree_plainList, argc, argv);
     QTest::qExec(new TestTask_all, argc, argv);
     QTest::qExec(new TestDiaryRecord_all, argc, argv);
+    QTest::qExec(new Test_TaskIdTree_nestingLevel, argc, argv);
 
     qDebug() << "Running all tests finished...";
 }

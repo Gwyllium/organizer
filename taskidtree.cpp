@@ -53,3 +53,8 @@ TaskIdTree *TaskIdTree::after(int index)
     return m_children[index];
 }
 
+int TaskIdTree::nestingLevel(const QString &taskId)
+{
+    return -1;
+}
+
