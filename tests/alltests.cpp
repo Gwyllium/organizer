@@ -1,6 +1,5 @@
 #include "alltests.h"
 
-#include "tests/testtree.h"
 #include "tests/models/testtaskidlistmodel_data.h"
 #include "tests/models/testtaskidlistmodel_rowcount.h"
 #include "tests/models/testtaskidlistmodel_toplainlist.h"
@@ -17,7 +16,6 @@ void runAllTests() {
 
     int argc = 0;
     char** argv = NULL;
-    QTest::qExec(new TestTree, argc, argv);
     QTest::qExec(new TestTaskIdListModel_data, argc, argv);
     QTest::qExec(new TestTaskIdListModel_rowCount, argc, argv);
     QTest::qExec(new TestTaskIdListModel_toPlainList, argc, argv);
