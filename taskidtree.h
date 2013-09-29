@@ -19,8 +19,10 @@ public slots:
 private:
     QString m_value;
     QList<TaskIdTree*> m_children;
+
     QString plainText(int nestingLevel);
     void plainList(QList<QString> &allIds);
+    int nestingLevel(TaskIdTree* subtree, int subtreeLevel, const QString &taskId);
 
 };
 

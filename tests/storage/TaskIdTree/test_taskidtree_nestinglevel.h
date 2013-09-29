@@ -17,6 +17,14 @@ signals:
 public slots:
 private slots:
     void treeIsEmpty();
+    void treeContainsOneItem();
+    void treeContainsOneItemButGivenIdIsNotFound();
+    void treeContainsSeveralItemsInOneLevel();
+    void treeContainsSeveralItemsInOneLevelButGivenIdIsNotFound();
+    void treeContainsSeveralItemsInTwoLevels();
+    void treeContainsSeveralItemsInTwoLevelsButGivenIdIsNotFound();
+    void threeLevels();
+    void threeLevelsButGivenIdIsNotFound();
 
 };
 

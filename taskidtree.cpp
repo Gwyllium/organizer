@@ -55,6 +55,26 @@ TaskIdTree *TaskIdTree::after(int index)
 
 int TaskIdTree::nestingLevel(const QString &taskId)
 {
+    for(int i = 0; i < m_children.size(); i++) {
+        int nestingLevelInCurrentSubTree = nestingLevel(m_children[i], 0, taskId);
+        if (nestingLevelInCurrentSubTree > -1) {
+            return nestingLevelInCurrentSubTree;
+        }
+    }
     return -1;
 }
 
+int TaskIdTree::nestingLevel(TaskIdTree *subtree, int subtreeLevel, const QString &taskId)
+{
+    if (taskId == subtree->m_value) {
+        return subtreeLevel;
+    }
+    for(int i = 0; i < subtree->m_children.size(); i++) {
+        int nestingLevelInCurrentSubTree = nestingLevel(subtree->m_children[i], subtreeLevel + 1, taskId);
+        if (nestingLevelInCurrentSubTree > -1) {
+            return nestingLevelInCurrentSubTree;
+        }
+    }
+
+    return -1;
+}
