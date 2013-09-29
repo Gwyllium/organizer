@@ -51,6 +51,18 @@ void Test_TaskIdTree_nestingLevel::oneLevel()
     QCOMPARE(actual, expected);
 }
 
+void Test_TaskIdTree_nestingLevel::oneLevel2()
+{
+    int expected = 0;
+
+    TaskIdTree tree;
+    tree.add("first");
+    tree.add("second");
+    int actual = tree.nestingLevel("first");
+
+    QCOMPARE(actual, expected);
+}
+
 void Test_TaskIdTree_nestingLevel::oneLevelButGivenIdIsNotFound()
 {
     int expected = -1;
@@ -75,6 +87,21 @@ void Test_TaskIdTree_nestingLevel::twoLevels()
     tree.after(0)->add("D");
     tree.after(1)->add("E");
     int actual = tree.nestingLevel("E");
+
+    QCOMPARE(actual, expected);
+}
+
+void Test_TaskIdTree_nestingLevel::twoLevels2()
+{
+    int expected = 1;
+    TaskIdTree tree;
+    tree.add("A");
+    tree.add("B");
+    tree.after(0)->add("C");
+    tree.after(0)->add("D");
+    tree.after(1)->add("E");
+    tree.after(1)->add("F");
+    int actual = tree.nestingLevel("D");
 
     QCOMPARE(actual, expected);
 }
@@ -107,6 +134,22 @@ void Test_TaskIdTree_nestingLevel::threeLevels()
     tree.after(1)->after(0)->add("G");
     tree.after(2)->add("H");
     int actual = tree.nestingLevel("G");
+
+    QCOMPARE(actual, expected);
+}
+
+void Test_TaskIdTree_nestingLevel::threeLevels2()
+{
+    int expected = 1;
+
+    TaskIdTree tree;
+    tree.add("A");
+    tree.add("B");
+    tree.add("C");
+    tree.after(0)->add("D");
+    tree.after(0)->add("E");
+    tree.after(0)->after(0)->add("F");
+    int actual = tree.nestingLevel("D");
 
     QCOMPARE(actual, expected);
 }

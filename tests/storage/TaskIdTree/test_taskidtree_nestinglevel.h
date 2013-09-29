@@ -20,10 +20,13 @@ private slots:
     void treeContainsOneItem();
     void treeContainsOneItemButGivenIdIsNotFound();
     void oneLevel();
+    void oneLevel2();
     void oneLevelButGivenIdIsNotFound();
     void twoLevels();
+    void twoLevels2();
     void twoLevelsButGivenIdIsNotFound();
     void threeLevels();
+    void threeLevels2();
     void threeLevelsButGivenIdIsNotFound();
 
 };
